@@ -1,25 +1,19 @@
-/* Importing Avenir fonts */
-@font-face {
-    font-family: 'Avenir';
-    src: url('https://fonts.gstatic.com/s/avenir/avenir.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Avenir Light';
-    src: url('https://fonts.gstatic.com/s/avenir/avenir-light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-}
-
 /* General Styles */
 body {
-    font-family: 'Avenir Light', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
     line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;  /* Add padding on the left */
+    padding-right: 20px; /* Add padding on the right */
 }
 
 /* Header */
@@ -32,31 +26,13 @@ body {
 .site-title {
     font-size: 2rem;
     text-align: center;
-    font-family: 'Avenir', Arial, sans-serif;
-}
-
-.site-navigation ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.site-navigation ul li {
-    margin: 0 15px;
-}
-
-.site-navigation ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
 }
 
 /* Hero Section */
 .hero-section {
     position: relative;
     height: 450px;
-    background-image: url('img/backdrop_lab_homepage.png');
+    background-image: url('../img/backdrop_lab_homepage.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -66,84 +42,15 @@ body {
     color: white;
 }
 
-.hero-section .hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-section h2 {
-    font-size: 5rem;
-    font-family: 'Avenir', Arial, sans-serif;
-    margin: 0;
-    letter-spacing: -1px;
-}
-
-.hero-section p {
-    font-size: 1.25rem;
-    font-family: 'Avenir Light', Arial, sans-serif;
-    margin-top: 10px;
-}
-
-/* Adding a backdrop filter to make text more readable */
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
 /* Main Content */
 .site-main {
     padding: 40px 0;
-    font-family: 'Avenir Light', Arial, sans-serif;
-}
-
-/* Featured Articles */
-.featured-articles {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
-}
-
-.article {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    flex: 1;
-}
-
-.article img {
-    width: 100%;
-    height: auto;
-}
-
-.article h3 {
-    padding: 20px;
-    font-size: 1.5rem;
-    font-family: 'Avenir', Arial, sans-serif;
-}
-
-.article p {
-    padding: 0 20px 20px 20px;
 }
 
 /* Services Section */
 .services {
     display: flex;
     gap: 20px;
-}
-
-.service {
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    flex: 1;
 }
 
 /* Footer */
