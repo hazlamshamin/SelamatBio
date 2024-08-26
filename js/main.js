@@ -35,5 +35,9 @@ document.querySelector('form').addEventListener('submit', function(event) {
         }
     }
 
+    // Save the PDF
     doc.save('durc_quickscan_results.pdf');
+
+    // Redirect to the results page after the PDF is saved
+    window.location.href = 'durc-results.html';
 });
