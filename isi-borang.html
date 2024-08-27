@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isi Bahagian - SelamatBio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        let countdownInterval;
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function setupPage() {
+            const part = getQueryParam('part');
+            const partTitle = document.getElementById('partTitle');
+            const pageInfo = document.getElementById('pageInfo');
+            const downloadLink = document.getElementById('downloadLink');
+
+            switch(part) {
+                case 'Preliminary':
+                    partTitle.innerText = 'Bahagian Awal dan Butiran Pengimport';
+                    pageInfo.innerHTML = 'Sila lengkapkan bahagian ini pada <strong>halaman 1-5</strong>.';
+                    downloadLink.href = 'Form-E_16-Feb-2024.docx';
+                    break;
+                case 'A':
+                    partTitle.innerText = 'Bahagian A dan B: Butiran Ahli Pasukan dan Penerangan Projek';
+                    pageInfo.innerHTML = 'Sila lengkapkan bahagian ini pada <strong>halaman 6-9</strong>.';
+                    downloadLink.href = 'Form-E_16-Feb-2024.docx';
+                    break;
+                case 'C':
+                    partTitle.innerText = 'Bahagian C: Penerangan LMO';
+                    pageInfo.innerHTML = 'Sila lengkapkan bahagian ini pada <strong>halaman 3-4</strong>.';
+                    downloadLink.href = 'Form-E_16-Feb-2024.docx';
+                    break;
+                case 'D':
+                    partTitle.innerText = 'Bahagian D: Premis';
+                    pageInfo.innerHTML = 'Sila lengkapkan bahagian ini pada <strong>halaman 5-7</strong>.';
+                    downloadLink.href = 'Form-E_16-Feb-2024.docx';
+                    break;
+                case 'E':
+                    partTitle.innerText = 'Bahagian E: Penilaian dan Pengurusan Risiko';
+                    pageInfo.innerHTML = 'Sila lengkapkan bahagian ini pada <strong>halaman 8-11</strong>.';
+                    downloadLink.href = 'Form-E_16-Feb-2024.docx';
+                    break;
+                case 'F':
+                    partTitle.innerText = 'Bahagian F dan G: Maklumat Perniagaan Sulit dan Rujukan';
+                    pageInfo.innerHTML = 'Sila lengkapkan bahagian ini pada <strong>halaman 12-16</strong>.';
+                    downloadLink.href = 'Form-E_16-Feb-2024.docx';
+                    break;
+                default:
+                    partTitle.innerText = 'Bahagian Tidak Dikenal';
+                    pageInfo.innerText = 'Sila pilih bahagian yang betul.';
+            }
+        }
+
+        function startTimer(minutes) {
+            const countdownElement = document.getElementById('countdown');
+            const endTime = Date.now() + minutes * 60000;
+
+            countdownInterval = setInterval(() => {
+                const remainingTime = endTime - Date.now();
+                if (remainingTime <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.innerText = '00:00';
+                    showNotification('Masa tamat!', 'Anda telah mencapai had masa yang ditetapkan.');
+                    playAlarm();
+                } else {
+                    const minutesLeft = Math.floor((remainingTime / 60000));
+                    const secondsLeft = Math.floor((remainingTime % 60000) / 1000);
+                    countdownElement.innerText = `${String(minutesLeft).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`;
+                }
+            }, 1000);
+
+            alert(`Timer dimulakan untuk ${minutes} minit. Anda boleh lakukannya! Tetapkan fokus dan cuba selesaikan bahagian ini dengan cepat.`);
+        }
+
+        function showNotification(title, body) {
+            if (Notification.permission === 'granted') {
+                new Notification(title, { body });
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification(title, { body });
+                    }
+                });
+            }
+        }
+
+        function playAlarm() {
+            const alarmSound = new Audio('alarm.mp3'); // Replace with the actual path to your alarm sound file
+            alarmSound.play();
+        }
+
+        window.onload = () => {
+            setupPage();
+
+            if (Notification.permission !== 'granted') {
+                Notification.requestPermission();
+            }
+        };
+    </script>
+</head>
+<body>
+
+    <!-- Include the same header with sub-navigation -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">SelamatBio</h1>
+            <nav class="site-navigation">
+                <ul>
+                    <li><a href="index.html">Laman Utama</a></li>
+                    <li><a href="penulisan-informatif.html">Penulisan Informatif</a></li>
+                    <li><a href="durc-quickscan.html">Imbasan DuRC</a></li>
+                    <li><a href="form-e-quickhelp.html">Bantuan Borang E</a></li>
+                </ul>
+            </nav>
+
+            <!-- Sub-navigation for Bantuan Borang E -->
+            <nav class="sub-navigation">
+                <ul>
+                    <li><a href="form-e-quickhelp.html">Pengenalan</a></li>
+                    <li><a href="bantuan-borang-e-bantuan.html" class="active">Bantuan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content for Isi Bahagian -->
+    <main class="site-main">
+        <div class="container">
+            <h1 id="partTitle">Loading...</h1>
+            <p id="pageInfo">Loading...</p>
+
+            <!-- Download Section -->
+            <div>
+                <h3>Muat Turun Borang</h3>
+                <p>Borang ini dilindungi dan medan yang diperlukan telah disorot. Jika anda belum memuat turun borang ini, sila klik di bawah:</p>
+                <a id="downloadLink" class="jana-pdf-btn" href="#" download>Klik di sini untuk muat turun Borang E</a>
+            </div>
+
+            <!-- Timer Section -->
+            <div>
+                <h3>Timer</h3>
+                <p>Setkan masa untuk bahagian ini. Cuba tetapkan masa yang pendek untuk memotivasi diri anda menyelesaikan bahagian ini dengan pantas. Kami ada di sini untuk membantu anda menyiapkan tugasan ini!</p>
+                <div id="countdown" style="font-size: 2rem; font-weight: bold;">00:00</div>
+                <button class="jana-pdf-btn" onclick="startTimer(10)">10 Minit</button>
+                <button class="jana-pdf-btn" onclick="startTimer(15)">15 Minit</button>
+                <button class="jana-pdf-btn" onclick="startTimer(30)">30 Minit</button>
+            </div>
+
+            <!-- Reminder Section -->
+            <div>
+                <h3>Tetapkan Peringatan untuk Bahagian Ini</h3>
+                <p>Jika anda sibuk sekarang, tidak mengapa! Tetapkan peringatan supaya anda tidak lupa untuk menyelesaikan bahagian ini kemudian. Kami akan membantu anda memastikan tiada yang terlepas!</p>
+                <form id="reminderForm" method="POST" action="/set-reminder">
+                    <input type="hidden" id="reminderPart" name="part" value="">
+                    <label for="date">Tarikh Peringatan:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="email">Alamat E-mel:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit" class="jana-pdf-btn">Tetapkan Peringatan</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 SelamatBio. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

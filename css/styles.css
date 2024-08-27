@@ -284,3 +284,56 @@ input[type="radio"]:checked + label .custom-radio {
     text-align: center;
     margin-top: 40px;
 }
+
+/* Carousel styling */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    height: 600px; /* Adjust height based on content */
+}
+
+.carousel-item {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: fade 1.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-item img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.carousel-item h3 {
+    margin: 20px 0 10px;
+}
+
+.carousel-item p {
+    margin-bottom: 20px;
+}
+
+.carousel-item a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Ensure the first item is visible on page load */
+.carousel-item:first-child {
+    display: block;
+}
+

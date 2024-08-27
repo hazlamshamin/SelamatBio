@@ -3,6 +3,31 @@ console.log('SelamatBio site loaded successfully!');
 document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM fully loaded');
 
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+
+    if (totalItems > 1) {
+        items.forEach((item, index) => {
+            if (index !== 0) {
+                item.style.display = 'none';
+            }
+        });
+
+        function showNextItem() {
+            console.log(`Switching from item ${currentIndex}`);
+            items[currentIndex].style.display = 'none'; // Hide current item
+            currentIndex = (currentIndex + 1) % totalItems; // Move to next item
+            items[currentIndex].style.display = 'block'; // Show next item
+            console.log(`Showing item ${currentIndex}`);
+        }
+
+        // Set interval to switch items every 4 seconds
+        setInterval(showNextItem, 4000);
+    } else {
+        console.log('Only one carousel item found; skipping interval setup.');
+    }
+
     document.querySelector('#durcForm').addEventListener('submit', function (event) {
         event.preventDefault();
         const { jsPDF } = window.jspdf;
@@ -172,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add a delay before redirecting to ensure the download starts
         setTimeout(function() {
-            window.location.href = 'durc-results.html';
+            window.open('durc-results.html', '_blank'); // Opens durc-results.html in a new tab
         }, 2000); // 2-second delay before redirecting
 
         // Function to add footer with page number

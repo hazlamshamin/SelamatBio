@@ -6,6 +6,12 @@
     <title>Bantuan - Bantuan Borang E - SelamatBio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        // Function to redirect to the shared page with part parameter
+        function redirectToPart(part) {
+            window.open(`isi-borang.html?part=${part}`, '_blank');
+        }
+    </script>
 </head>
 <body>
 
@@ -37,99 +43,39 @@
         <div class="container">
             <!-- Part Descriptions and Forms -->
             <section class="form-section">
-                <h4>Maklumat Awal (Preliminary Information)</h4>
-                <p>Bahagian ini mengandungi maklumat asas mengenai organisasi, nama pemohon, tajuk projek, dan sama ada aktiviti ini pertama kali diberitahu. Ia juga termasuk maklumat hubungan dan identiti yang relevan.</p>
-                <!-- Form fields related to Preliminary Information -->
-            </section>
-
-            <section id="importerDetails" class="form-section">
-                <h4>Butiran Pengimport (Details of Importer)</h4>
-                <p>Bahagian ini diisi jika LMO (Organisma Hidup yang Diubahsuai) diimport. Ia termasuk maklumat mengenai individu, syarikat, atau organisasi yang mengimport, orang yang dihubungi, dan butiran mengenai LMO yang diimport.</p>
-                <!-- Form fields related to Importer Details -->
+                <h4>Maklumat Awal dan Butiran Pengimport</h4>
+                <p>Bahagian ini mengandungi maklumat asas mengenai organisasi, nama pemohon, tajuk projek, dan sama ada aktiviti ini pertama kali diberitahu. Ia juga termasuk maklumat hubungan dan identiti yang relevan serta butiran pengimport jika LMO diimport.</p>
+                <button class="jana-pdf-btn" onclick="redirectToPart('Preliminary')">Isi Bahagian Ini</button>
             </section>
 
             <section id="partA" class="form-section">
-                <h4>Bahagian A: Butiran Ahli Pasukan</h4>
-                <p>Mengandungi butiran mengenai ahli pasukan projek, termasuk nama, alamat, kelayakan, dan peranan mereka dalam organisasi.</p>
-                <form id="formA" method="POST" action="/process-part-a">
-                    <!-- Add form fields related to Part A here -->
-                    <button type="submit">Jana Bahagian A</button>
-                </form>
-            </section>
-
-            <section id="partB" class="form-section">
-                <h4>Bahagian B: Penerangan Projek</h4>
-                <p>Bahagian ini memerlukan pemohon untuk menerangkan aktiviti yang dicadangkan dengan LMO dalam konteks projek. Ini termasuk objektif umum, objektif spesifik, penerangan aktiviti, tahap keselamatan biologi yang dicadangkan, dan tempoh jangkaan aktiviti.</p>
-                <form id="formB" method="POST" action="/process-part-b">
-                    <!-- Add form fields related to Part B here -->
-                    <button type="submit">Jana Bahagian B</button>
-                </form>
+                <h4>Bahagian A dan B: Butiran Ahli Pasukan dan Penerangan Projek</h4>
+                <p>Bahagian A mengandungi butiran mengenai ahli pasukan projek, termasuk nama, alamat, kelayakan, dan peranan mereka dalam organisasi. Bahagian B memerlukan pemohon untuk menerangkan aktiviti yang dicadangkan dengan LMO dalam konteks projek.</p>
+                <button class="jana-pdf-btn" onclick="redirectToPart('A')">Isi Bahagian Ini</button>
             </section>
 
             <section id="partC" class="form-section">
                 <h4>Bahagian C: Penerangan LMO</h4>
                 <p>Bahagian ini melibatkan penerangan mengenai LMO yang digunakan dalam aktiviti, termasuk nama biasa dan saintifik organisma penerima dan penderma, vektor yang digunakan, sifat yang diubah, dan maklumat mengenai gen yang terlibat.</p>
-                <form id="formC" method="POST" action="/process-part-c">
-                    <!-- Add form fields related to Part C here -->
-                    <button type="submit">Jana Bahagian C</button>
-                </form>
+                <button class="jana-pdf-btn" onclick="redirectToPart('C')">Isi Bahagian Ini</button>
             </section>
 
             <section id="partD" class="form-section">
                 <h4>Bahagian D: Premis</h4>
                 <p>Mengandungi maklumat mengenai semua premis yang digunakan untuk aktiviti kegunaan terkawal, termasuk nama, jenis premis, tahap keselamatan biologi, dan maklumat mengenai sebarang pemeriksaan terkini.</p>
-                <form id="formD" method="POST" action="/process-part-d">
-                    <!-- Add form fields related to Part D here -->
-                    <button type="submit">Jana Bahagian D</button>
-                </form>
+                <button class="jana-pdf-btn" onclick="redirectToPart('D')">Isi Bahagian Ini</button>
             </section>
 
             <section id="partE" class="form-section">
                 <h4>Bahagian E: Penilaian dan Pengurusan Risiko</h4>
                 <p>Bahagian ini memerlukan pemohon untuk mengisi matriks penilaian risiko, mengenal pasti potensi bahaya, dan mengulas mengenai pengurusan risiko untuk setiap aspek aktiviti yang dicadangkan.</p>
-                <form id="formE" method="POST" action="/process-part-e">
-                    <!-- Add form fields related to Part E here -->
-                    <button type="submit">Jana Bahagian E</button>
-                </form>
+                <button class="jana-pdf-btn" onclick="redirectToPart('E')">Isi Bahagian Ini</button>
             </section>
 
             <section id="partF" class="form-section">
-                <h4>Bahagian F: Maklumat Perniagaan Sulit</h4>
-                <p>Bahagian ini untuk memasukkan sebarang maklumat dalam Bahagian A - E yang dianggap sulit bersama dengan justifikasi penuh untuk tuntutan tersebut.</p>
-                <form id="formF" method="POST" action="/process-part-f">
-                    <!-- Add form fields related to Part F here -->
-                    <button type="submit">Jana Bahagian F</button>
-                </form>
-            </section>
-
-            <section id="partG" class="form-section">
-                <h4>Bahagian G: Rujukan</h4>
-                <p>Memasukkan rujukan yang disebut dalam penerangan projek atau sebarang dokumen sokongan untuk penilaian risiko atau rujukan lain yang berkaitan dengan aktiviti ini.</p>
-                <!-- No form needed for references, but perhaps allow upload of documents or linking to references -->
-            </section>
-
-            <!-- Reminder Feature -->
-            <section id="reminder" class="reminder-section">
-                <h3>Tetapkan Peringatan</h3>
-                <form id="reminderForm" method="POST" action="/set-reminder">
-                    <label for="part">Bahagian:</label>
-                    <select id="part" name="part">
-                        <option value="A">Bahagian A</option>
-                        <option value="B">Bahagian B</option>
-                        <option value="C">Bahagian C</option>
-                        <option value="D">Bahagian D</option>
-                        <option value="E">Bahagian E</option>
-                        <option value="F">Bahagian F</option>
-                    </select>
-
-                    <label for="date">Tarikh Peringatan:</label>
-                    <input type="date" id="date" name="date" required>
-
-                    <label for="email">Alamat E-mel:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <button type="submit">Tetapkan Peringatan</button>
-                </form>
+                <h4>Bahagian F dan G: Maklumat Perniagaan Sulit dan Rujukan</h4>
+                <p>Bahagian F untuk memasukkan sebarang maklumat dalam Bahagian A - E yang dianggap sulit bersama dengan justifikasi penuh untuk tuntutan tersebut. Bahagian G adalah untuk memasukkan rujukan yang disebut dalam penerangan projek atau sebarang dokumen sokongan untuk penilaian risiko atau rujukan lain yang berkaitan dengan aktiviti ini.</p>
+                <button class="jana-pdf-btn" onclick="redirectToPart('F')">Isi Bahagian Ini</button>
             </section>
         </div>
     </main>
