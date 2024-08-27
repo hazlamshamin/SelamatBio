@@ -63,6 +63,48 @@ body {
     text-decoration: none;
 }
 
+/* Sub-navigation Styles */
+.sub-navigation {
+    background-color: #d2b48c;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+    border-bottom: 3px solid #d2b48c;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.sub-navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.sub-navigation ul li {
+    margin: 0 15px;
+}
+
+.sub-navigation ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sub-navigation ul li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.sub-navigation ul li a.active {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
