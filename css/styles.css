@@ -292,7 +292,7 @@ input[type="radio"]:checked + label .custom-radio {
     margin: auto;
     overflow: hidden;
     text-align: center;
-    height: 600px; /* Adjust height based on content */
+    height: 650px; /* Adjust height based on content */
 }
 
 .carousel-item {
