@@ -12,8 +12,8 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-left: 20px;  /* Add padding on the left */
-    padding-right: 20px; /* Add padding on the right */
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Header */
@@ -26,6 +26,41 @@ body {
 .site-title {
     font-size: 2rem;
     text-align: center;
+}
+
+/* Navigation Menu */
+.site-navigation {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.site-navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-navigation ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.site-navigation ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.site-navigation ul li a:hover {
+    color: #000;
+}
+
+.site-navigation ul li a.active {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* Hero Section */
@@ -42,15 +77,161 @@ body {
     color: white;
 }
 
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+/* Stylish Headers */
+.stylish-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(0,36,61,1) 0%, rgba(2,117,116,1) 50%, rgba(0,36,61,1) 100%);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.stylish-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #28a745;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Featured Articles */
+.featured-articles h3 {
+    font-size: 1.8rem;
+    margin-top: 15px;
+    color: #007bff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.featured-articles p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Service Section */
+.services h3 {
+    font-size: 1.8rem;
+    margin-top: 15px;
+    color: #28a745;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.services p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Answer Options */
+.answer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-options input[type="radio"] {
+    display: none;
+}
+
+.answer-options label {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.answer-options label:hover {
+    background-color: #e2e6ea;
+}
+
+.answer-options input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.custom-radio {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #ccc;
+    margin-right: 10px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="radio"]:checked + label .custom-radio {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Jana PDF Button */
+.jana-pdf-btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.jana-pdf-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.jana-pdf-btn:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
+
 /* Main Content */
 .site-main {
     padding: 40px 0;
-}
-
-/* Services Section */
-.services {
-    display: flex;
-    gap: 20px;
 }
 
 /* Footer */
